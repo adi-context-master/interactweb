@@ -33,44 +33,44 @@ export default function Templates() {
   });
 
   return (
-    <div className="min-h-screen bg-[#FAFAF8]">
+    <div className="min-h-screen bg-background">
       {/* Nav */}
-      <nav className="bg-white border-b border-gray-200 px-8 py-4 flex items-center justify-between">
-        <Link href="/" className="flex items-center gap-2">
-          <div className="w-8 h-8 bg-[#FF6B5A] rounded-lg flex items-center justify-center">
+      <nav className="bg-card border-b-2 border-foreground px-8 py-4 flex items-center justify-between">
+        <Link href="/" className="flex items-center gap-3">
+          <div className="w-10 h-10 bg-accent rounded-xl border-2 border-foreground shadow-hard flex items-center justify-center">
             <span className="text-white font-bold text-lg">E</span>
           </div>
-          <span className="text-xl font-semibold text-[#1B2A4A]">Engagely</span>
+          <span className="text-2xl font-extrabold text-foreground font-heading">Engagely</span>
         </Link>
         <div className="flex items-center gap-4">
-          <Link href="/dashboard" className="text-sm text-[#1B2A4A] hover:text-[#FF6B5A] transition-colors">Dashboard</Link>
-          <Link href="/flow-builder" className="text-sm text-[#1B2A4A] hover:text-[#FF6B5A] transition-colors">Flow Builder</Link>
-          <button className="px-5 py-2.5 bg-[#FF6B5A] text-white rounded-lg text-sm hover:bg-[#FF5A48] transition-all">Get Started</button>
+          <Link href="/dashboard" className="text-sm font-bold text-foreground hover:text-accent bounce-transition">Dashboard</Link>
+          <Link href="/flow-builder" className="text-sm font-bold text-foreground hover:text-accent bounce-transition">Flow Builder</Link>
+          <button className="px-5 py-2.5 bg-accent text-white rounded-full border-2 border-foreground shadow-hard text-sm font-bold hover:shadow-hard-hover hover:-translate-y-1 bounce-transition">Get Started</button>
         </div>
       </nav>
 
       <div className="max-w-[1440px] mx-auto px-8 py-12">
         {/* Header */}
-        <div className="text-center mb-12">
-          <h1 className="text-4xl font-bold text-[#1B2A4A] mb-4">Conversation Flow Templates</h1>
-          <p className="text-lg text-gray-600 max-w-2xl mx-auto">Pre-built templates to get your AI agent up and running in minutes. Customize to fit your brand and workflow.</p>
+        <div className="text-center mb-12 animate-pop-in">
+          <h1 className="text-4xl font-heading font-extrabold text-foreground mb-4">Conversation Flow Templates</h1>
+          <p className="text-lg text-muted-fg max-w-2xl mx-auto">Pre-built templates to get your AI agent up and running in minutes. Customize to fit your brand and workflow.</p>
         </div>
 
         {/* Search */}
-        <div className="max-w-xl mx-auto mb-10">
+        <div className="max-w-xl mx-auto mb-10 animate-pop-in">
           <div className="relative">
-            <Search className="w-5 h-5 absolute left-4 top-1/2 -translate-y-1/2 text-gray-400" />
-            <input type="text" value={searchQuery} onChange={(e) => setSearchQuery(e.target.value)} placeholder="Search templates..." className="w-full pl-12 pr-4 py-4 bg-white border border-gray-200 rounded-xl text-sm outline-none focus:ring-2 focus:ring-[#FF6B5A]/20 focus:border-[#FF6B5A]" />
+            <Search className="w-5 h-5 absolute left-4 top-1/2 -translate-y-1/2 text-muted-fg" />
+            <input type="text" value={searchQuery} onChange={(e) => setSearchQuery(e.target.value)} placeholder="Search templates..." className="w-full pl-12 pr-4 py-4 bg-card border-2 border-foreground rounded-xl text-sm outline-none focus:shadow-hard-violet" />
           </div>
         </div>
 
         {/* Categories */}
-        <div className="flex items-center justify-center gap-3 mb-10 flex-wrap">
+        <div className="flex items-center justify-center gap-3 mb-10 flex-wrap animate-pop-in">
           {categories.map((cat) => {
             const Icon = cat.icon;
             return (
               <button key={cat.id} onClick={() => setSelectedCategory(cat.id)}
-                className={`flex items-center gap-2 px-5 py-2.5 rounded-full text-sm transition-all ${selectedCategory === cat.id ? "bg-[#1B2A4A] text-white" : "bg-white border border-gray-200 text-[#1B2A4A] hover:border-[#FF6B5A]/30"}`}
+                className={`flex items-center gap-2 px-5 py-2.5 rounded-full text-sm font-bold border-2 border-foreground bounce-transition ${selectedCategory === cat.id ? "bg-accent text-white shadow-hard" : "bg-card text-foreground hover:bg-tertiary"}`}
               >
                 <Icon className="w-4 h-4" />
                 {cat.name}
@@ -82,32 +82,32 @@ export default function Templates() {
         {/* Template Grid */}
         <div className="grid grid-cols-3 gap-8">
           {filtered.map((template) => (
-            <div key={template.id} className="bg-white rounded-2xl border border-gray-200 overflow-hidden hover:shadow-xl hover:-translate-y-1 transition-all duration-300 group">
+            <div key={template.id} className="bg-card rounded-2xl border-2 border-foreground shadow-hard overflow-hidden hover:shadow-hard-hover hover:-translate-y-1 bounce-transition group animate-pop-in">
               <div className="relative h-48 overflow-hidden">
                 {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img src={template.image} alt={template.name} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+                <img src={template.image} alt={template.name} className="w-full h-full object-cover group-hover:scale-105 bounce-transition" />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
                 {template.popular && (
-                  <div className="absolute top-4 left-4 px-3 py-1 bg-[#FF6B5A] text-white text-xs font-semibold rounded-full flex items-center gap-1">
+                  <div className="absolute top-4 left-4 px-3 py-1 bg-secondary text-white text-xs font-extrabold rounded-full border-2 border-foreground flex items-center gap-1">
                     <Star className="w-3 h-3" /> Popular
                   </div>
                 )}
-                <div className="absolute bottom-4 left-4 flex items-center gap-3 text-white/90 text-xs">
+                <div className="absolute bottom-4 left-4 flex items-center gap-3 text-white/90 text-xs font-bold">
                   <span className="flex items-center gap-1"><Clock className="w-3 h-3" />{template.avgTime}</span>
                   <span className="flex items-center gap-1"><Users className="w-3 h-3" />{template.nodes} nodes</span>
                 </div>
               </div>
               <div className="p-6">
-                <h3 className="text-lg font-semibold text-[#1B2A4A] mb-2">{template.name}</h3>
-                <p className="text-sm text-gray-600 mb-4 line-clamp-2">{template.description}</p>
+                <h3 className="text-lg font-heading font-extrabold text-foreground mb-2">{template.name}</h3>
+                <p className="text-sm text-muted-fg mb-4 line-clamp-2">{template.description}</p>
                 <div className="flex flex-wrap gap-2 mb-4">
                   {template.tags.map((tag) => (
-                    <span key={tag} className="px-2.5 py-1 bg-gray-100 text-gray-600 text-xs rounded-full">{tag}</span>
+                    <span key={tag} className="px-2.5 py-1 border-2 border-border rounded-full font-bold text-xs text-muted-fg">{tag}</span>
                   ))}
                 </div>
                 <div className="flex items-center justify-between">
-                  <span className="text-sm font-semibold text-green-600">{template.conversionRate} conversion</span>
-                  <Link href="/flow-builder" className="px-4 py-2 bg-[#FF6B5A] text-white text-sm rounded-lg hover:bg-[#FF5A48] transition-colors">Use Template</Link>
+                  <span className="text-sm font-extrabold text-quaternary">{template.conversionRate} conversion</span>
+                  <Link href="/flow-builder" className="px-4 py-2 bg-accent text-white text-sm rounded-full border-2 border-foreground shadow-hard font-bold hover:shadow-hard-hover hover:-translate-y-1 bounce-transition">Use Template</Link>
                 </div>
               </div>
             </div>

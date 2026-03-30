@@ -65,61 +65,84 @@ export default function Pricing() {
   const [annual, setAnnual] = useState(false);
 
   return (
-    <div className="min-h-screen bg-[#FAFAF8]">
-      <nav className="bg-white border-b border-gray-200 px-8 py-4 flex items-center justify-between">
+    <div className="min-h-screen bg-background">
+      <nav className="bg-card border-b-2 border-foreground px-8 py-4 flex items-center justify-between">
         <Link href="/" className="flex items-center gap-2">
-          <div className="w-8 h-8 bg-[#FF6B5A] rounded-lg flex items-center justify-center">
-            <span className="text-white font-bold text-lg">E</span>
+          <div className="w-10 h-10 bg-accent rounded-xl border-2 border-foreground shadow-hard flex items-center justify-center">
+            <span className="text-white font-extrabold text-lg">E</span>
           </div>
-          <span className="text-xl font-semibold text-[#1B2A4A]">Engagely</span>
+          <span className="text-xl font-heading font-extrabold text-foreground">Engagely</span>
         </Link>
         <div className="flex items-center gap-4">
-          <Link href="/" className="text-sm text-[#1B2A4A] hover:text-[#FF6B5A] transition-colors">Home</Link>
-          <Link href="/dashboard" className="text-sm text-[#1B2A4A] hover:text-[#FF6B5A] transition-colors">Dashboard</Link>
-          <button className="px-5 py-2.5 bg-[#FF6B5A] text-white rounded-lg text-sm hover:bg-[#FF5A48] transition-all">Get Started</button>
+          <Link href="/" className="text-sm font-bold text-foreground hover:text-accent bounce-transition">Home</Link>
+          <Link href="/dashboard" className="text-sm font-bold text-foreground hover:text-accent bounce-transition">Dashboard</Link>
+          <button className="px-5 py-2.5 bg-accent text-white rounded-full border-2 border-foreground shadow-hard font-bold text-sm bounce-transition hover:shadow-hard-hover">Get Started</button>
         </div>
       </nav>
 
       <div className="max-w-[1200px] mx-auto px-8 py-20">
         <div className="text-center mb-16">
-          <div className="inline-block px-4 py-2 bg-[#FF6B5A]/10 rounded-full mb-6">
-            <span className="text-sm font-medium text-[#FF6B5A]">Early Access — 6 months at half price</span>
+          <div className="inline-block px-4 py-2 bg-secondary/20 rounded-full border-2 border-foreground mb-6">
+            <span className="text-sm font-extrabold text-foreground">Early Access — 6 months at half price</span>
           </div>
-          <h1 className="text-5xl font-bold text-[#1B2A4A] mb-4">Simple, transparent pricing</h1>
-          <p className="text-xl text-gray-600 max-w-2xl mx-auto">Start free, scale as you grow. No hidden fees.</p>
+          <h1 className="text-5xl font-heading font-extrabold text-foreground mb-4">Simple, transparent pricing</h1>
+          <p className="text-xl text-muted-fg max-w-2xl mx-auto">Start free, scale as you grow. No hidden fees.</p>
 
           <div className="flex items-center justify-center gap-4 mt-8">
-            <span className={`text-sm ${!annual ? "text-[#1B2A4A] font-semibold" : "text-gray-500"}`}>Monthly</span>
-            <button onClick={() => setAnnual(!annual)} className={`w-14 h-7 rounded-full p-1 transition-colors ${annual ? "bg-[#FF6B5A]" : "bg-gray-300"}`}>
-              <div className={`w-5 h-5 rounded-full bg-white transition-transform ${annual ? "translate-x-7" : "translate-x-0"}`} />
+            <span className={`text-sm font-bold ${!annual ? "text-foreground" : "text-muted-fg"}`}>Monthly</span>
+            <button
+              onClick={() => setAnnual(!annual)}
+              className={`w-14 h-7 rounded-full p-1 border-2 border-foreground bounce-transition ${annual ? "bg-accent" : "bg-card"}`}
+            >
+              <div className={`w-5 h-5 rounded-full bg-white border-2 border-foreground transition-transform ${annual ? "translate-x-7" : "translate-x-0"}`} />
             </button>
-            <span className={`text-sm ${annual ? "text-[#1B2A4A] font-semibold" : "text-gray-500"}`}>Annual <span className="text-[#FF6B5A] text-xs font-semibold">Save 20%</span></span>
+            <span className={`text-sm font-bold ${annual ? "text-foreground" : "text-muted-fg"}`}>
+              Annual{" "}
+              <span className="inline-block px-2 py-0.5 bg-tertiary text-foreground rounded-full border-2 border-foreground font-extrabold text-xs">Save 20%</span>
+            </span>
           </div>
         </div>
 
         <div className="grid grid-cols-3 gap-8">
           {plans.map((plan) => (
-            <div key={plan.name} className={`bg-white rounded-2xl p-8 border-2 relative ${plan.popular ? "border-[#FF6B5A] shadow-xl shadow-[#FF6B5A]/10" : "border-gray-200"} hover:shadow-lg transition-all`}>
+            <div
+              key={plan.name}
+              className={`bg-card rounded-2xl p-8 border-2 border-foreground relative bounce-transition ${
+                plan.popular
+                  ? "border-accent shadow-hard-violet scale-105"
+                  : "shadow-hard hover:shadow-hard-hover"
+              }`}
+            >
               {plan.popular && (
-                <div className="absolute -top-4 left-1/2 -translate-x-1/2 px-4 py-1.5 bg-[#FF6B5A] text-white text-xs font-semibold rounded-full">Most Popular</div>
+                <div className="absolute -top-4 left-1/2 -translate-x-1/2 px-4 py-1.5 bg-accent text-white text-xs font-extrabold rounded-full border-2 border-foreground">
+                  Most Popular
+                </div>
               )}
-              <h3 className="text-2xl font-bold text-[#1B2A4A] mb-2">{plan.name}</h3>
+              <h3 className="text-2xl font-heading font-extrabold text-foreground mb-2">{plan.name}</h3>
               <div className="flex items-baseline gap-1 mb-2">
-                <span className="text-4xl font-bold text-[#1B2A4A]">{plan.price}</span>
-                {plan.period && <span className="text-gray-500">{plan.period}</span>}
+                <span className="text-4xl font-heading font-extrabold text-foreground">{plan.price}</span>
+                {plan.period && <span className="text-muted-fg font-bold">{plan.period}</span>}
               </div>
-              <p className="text-sm text-gray-600 mb-8">{plan.description}</p>
+              <p className="text-sm text-muted-fg mb-8">{plan.description}</p>
 
               <ul className="space-y-3 mb-8">
                 {plan.features.map((feature) => (
-                  <li key={feature} className="flex items-start gap-3 text-sm text-[#1B2A4A]">
-                    <Check className="w-5 h-5 text-green-500 shrink-0 mt-0.5" />
+                  <li key={feature} className="flex items-start gap-3 text-sm text-foreground font-bold">
+                    <div className="w-5 h-5 bg-quaternary/20 rounded-full border-2 border-foreground flex items-center justify-center shrink-0 mt-0.5">
+                      <Check className="w-3 h-3 text-quaternary" />
+                    </div>
                     {feature}
                   </li>
                 ))}
               </ul>
 
-              <button className={`w-full py-4 rounded-xl font-semibold text-lg transition-all flex items-center justify-center gap-2 ${plan.popular ? "bg-[#FF6B5A] text-white hover:bg-[#FF5A48] shadow-lg shadow-[#FF6B5A]/30" : "bg-[#1B2A4A] text-white hover:bg-[#2A4072]"}`}>
+              <button
+                className={`w-full py-4 rounded-full border-2 border-foreground font-extrabold text-lg bounce-transition flex items-center justify-center gap-2 ${
+                  plan.popular
+                    ? "bg-accent text-white shadow-hard hover:shadow-hard-hover"
+                    : "bg-foreground text-white hover:shadow-hard-hover"
+                }`}
+              >
                 {plan.cta} <ArrowRight className="w-5 h-5" />
               </button>
             </div>
@@ -129,18 +152,21 @@ export default function Pricing() {
         {/* Trust badges */}
         <div className="mt-20 grid grid-cols-3 gap-8">
           {[
-            { icon: Zap, title: "Go live in < 1 hour", desc: "Single JS snippet, no engineering required" },
-            { icon: Shield, title: "Enterprise security", desc: "SOC 2, TLS 1.3, AES-256, tenant isolation" },
-            { icon: Headphones, title: "Dedicated support", desc: "Priority support with < 4hr response time" },
+            { icon: Zap, title: "Go live in < 1 hour", desc: "Single JS snippet, no engineering required", shadowClass: "shadow-hard-yellow" },
+            { icon: Shield, title: "Enterprise security", desc: "SOC 2, TLS 1.3, AES-256, tenant isolation", shadowClass: "shadow-hard-violet" },
+            { icon: Headphones, title: "Dedicated support", desc: "Priority support with < 4hr response time", shadowClass: "shadow-hard-pink" },
           ].map((item) => {
             const Icon = item.icon;
             return (
-              <div key={item.title} className="text-center">
-                <div className="w-12 h-12 bg-[#FF6B5A]/10 rounded-xl flex items-center justify-center mx-auto mb-4">
-                  <Icon className="w-6 h-6 text-[#FF6B5A]" />
+              <div
+                key={item.title}
+                className={`text-center bg-card border-2 border-foreground rounded-2xl p-6 ${item.shadowClass} bounce-transition hover:shadow-hard-hover`}
+              >
+                <div className="w-12 h-12 bg-accent/15 rounded-xl border-2 border-foreground flex items-center justify-center mx-auto mb-4">
+                  <Icon className="w-6 h-6 text-accent" />
                 </div>
-                <h4 className="font-semibold text-[#1B2A4A] mb-1">{item.title}</h4>
-                <p className="text-sm text-gray-600">{item.desc}</p>
+                <h4 className="font-heading font-extrabold text-foreground mb-1">{item.title}</h4>
+                <p className="text-sm text-muted-fg">{item.desc}</p>
               </div>
             );
           })}

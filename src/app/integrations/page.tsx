@@ -32,37 +32,37 @@ export default function Integrations() {
   });
 
   return (
-    <div className="min-h-screen bg-[#FAFAF8]">
-      <nav className="bg-white border-b border-gray-200 px-8 py-4 flex items-center justify-between">
+    <div className="min-h-screen bg-background">
+      <nav className="bg-card border-b-2 border-foreground px-8 py-4 flex items-center justify-between">
         <Link href="/" className="flex items-center gap-2">
-          <div className="w-8 h-8 bg-[#FF6B5A] rounded-lg flex items-center justify-center">
+          <div className="w-10 h-10 bg-accent rounded-xl border-2 border-foreground shadow-hard flex items-center justify-center">
             <span className="text-white font-bold text-lg">E</span>
           </div>
-          <span className="text-xl font-semibold text-[#1B2A4A]">Engagely</span>
+          <span className="text-xl font-heading font-extrabold text-foreground">Engagely</span>
         </Link>
         <div className="flex items-center gap-4">
-          <Link href="/dashboard" className="text-sm text-[#1B2A4A] hover:text-[#FF6B5A] transition-colors">Dashboard</Link>
-          <button className="px-5 py-2.5 bg-[#FF6B5A] text-white rounded-lg text-sm hover:bg-[#FF5A48] transition-all">Get Started</button>
+          <Link href="/dashboard" className="text-sm font-bold text-foreground hover:text-accent bounce-transition">Dashboard</Link>
+          <button className="px-5 py-2.5 bg-accent text-white rounded-full border-2 border-foreground shadow-hard text-sm font-bold bounce-transition hover:-translate-y-1 hover:shadow-hard-hover">Get Started</button>
         </div>
       </nav>
 
       <div className="max-w-[1200px] mx-auto px-8 py-16">
         <div className="text-center mb-12">
-          <h1 className="text-4xl font-bold text-[#1B2A4A] mb-4">Integrations</h1>
-          <p className="text-lg text-gray-600 max-w-xl mx-auto">Connect Engagely with the tools your team already uses. Seamless data flow, zero manual work.</p>
+          <h1 className="text-4xl font-heading font-extrabold text-foreground mb-4">Integrations</h1>
+          <p className="text-lg text-muted-fg max-w-xl mx-auto">Connect Engagely with the tools your team already uses. Seamless data flow, zero manual work.</p>
         </div>
 
         <div className="max-w-xl mx-auto mb-8">
           <div className="relative">
-            <Search className="w-5 h-5 absolute left-4 top-1/2 -translate-y-1/2 text-gray-400" />
-            <input type="text" value={search} onChange={(e) => setSearch(e.target.value)} placeholder="Search integrations..." className="w-full pl-12 pr-4 py-3 bg-white border border-gray-200 rounded-xl text-sm outline-none focus:ring-2 focus:ring-[#FF6B5A]/20 focus:border-[#FF6B5A]" />
+            <Search className="w-5 h-5 absolute left-4 top-1/2 -translate-y-1/2 text-muted-fg" />
+            <input type="text" value={search} onChange={(e) => setSearch(e.target.value)} placeholder="Search integrations..." className="w-full pl-12 pr-4 py-3 bg-card border-2 border-foreground rounded-xl text-sm text-foreground outline-none focus:shadow-hard-violet bounce-transition" />
           </div>
         </div>
 
         <div className="flex items-center justify-center gap-2 mb-10 flex-wrap">
           {categoriesAll.map((cat) => (
             <button key={cat} onClick={() => setCategory(cat)}
-              className={`px-4 py-2 rounded-full text-sm transition-all ${category === cat ? "bg-[#1B2A4A] text-white" : "bg-white border border-gray-200 text-gray-600 hover:border-[#FF6B5A]/30"}`}
+              className={`px-4 py-2 rounded-full text-sm font-bold border-2 border-foreground bounce-transition ${category === cat ? "bg-accent text-white shadow-hard" : "bg-card text-foreground hover:-translate-y-1 hover:shadow-hard-violet"}`}
             >
               {cat}
             </button>
@@ -71,22 +71,22 @@ export default function Integrations() {
 
         <div className="grid grid-cols-3 gap-6">
           {filtered.map((integ) => (
-            <div key={integ.id} className={`bg-white rounded-xl p-6 border ${integ.status === "coming_soon" ? "border-gray-100 opacity-70" : "border-gray-200 hover:shadow-lg hover:border-[#FF6B5A]/20"} transition-all`}>
+            <div key={integ.id} className={`bg-card rounded-2xl p-6 border-2 bounce-transition ${integ.status === "coming_soon" ? "border-foreground opacity-70 shadow-hard" : "border-foreground shadow-hard hover:shadow-hard-violet hover:-translate-y-1"}`}>
               <div className="flex items-start justify-between mb-4">
                 <div className="flex items-center gap-3">
-                  <div className="w-12 h-12 rounded-xl bg-gray-50 flex items-center justify-center text-2xl">{integ.icon}</div>
+                  <div className="w-12 h-12 bg-muted rounded-xl border-2 border-border flex items-center justify-center text-2xl">{integ.icon}</div>
                   <div>
-                    <h3 className="font-semibold text-[#1B2A4A]">{integ.name}</h3>
-                    <span className="text-xs text-gray-500">{integ.category}</span>
+                    <h3 className="font-heading font-extrabold text-foreground">{integ.name}</h3>
+                    <span className="text-xs text-muted-fg">{integ.category}</span>
                   </div>
                 </div>
-                {integ.popular && <span className="px-2 py-1 bg-[#FF6B5A]/10 text-[#FF6B5A] text-[10px] font-semibold rounded-full">Popular</span>}
+                {integ.popular && <span className="px-2 py-1 bg-secondary/20 text-secondary border-2 border-secondary text-[10px] font-extrabold rounded-full">Popular</span>}
               </div>
-              <p className="text-sm text-gray-600 mb-4">{integ.description}</p>
+              <p className="text-sm text-muted-fg mb-4">{integ.description}</p>
               {integ.status === "coming_soon" ? (
-                <button className="w-full py-2.5 bg-gray-100 text-gray-500 rounded-lg text-sm font-medium cursor-not-allowed">Coming Soon</button>
+                <button className="w-full py-2.5 bg-muted text-muted-fg border-2 border-border rounded-full text-sm font-bold cursor-not-allowed">Coming Soon</button>
               ) : (
-                <button className="w-full py-2.5 bg-[#FF6B5A] text-white rounded-lg text-sm font-medium hover:bg-[#FF5A48] transition-colors flex items-center justify-center gap-2">
+                <button className="w-full py-2.5 bg-accent text-white rounded-full border-2 border-foreground shadow-hard text-sm font-bold bounce-transition hover:-translate-y-1 hover:shadow-hard-hover flex items-center justify-center gap-2">
                   Connect <ArrowRight className="w-4 h-4" />
                 </button>
               )}
