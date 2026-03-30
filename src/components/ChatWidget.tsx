@@ -392,7 +392,7 @@ export default function ChatWidget({ forceOpen }: { forceOpen?: boolean }) {
                   </div>
 
                   {/* Demo screen tabs — scrollable row */}
-                  <div className="flex gap-2 mb-4 overflow-x-auto pb-1">
+                  <div className="flex gap-2 mb-4 overflow-x-auto pb-1 scrollbar-none" style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}>
                     {Object.entries(demoScreens).map(([key, screen]) => (
                       <button key={key} onClick={() => setDemoScreen(key)}
                         className={`px-3 py-1.5 rounded-full text-[11px] font-bold border-2 border-foreground bounce-transition whitespace-nowrap ${demoScreen === key ? "bg-accent text-white shadow-hard" : "bg-card text-foreground hover:bg-tertiary/20"}`}>

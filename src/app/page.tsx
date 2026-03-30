@@ -124,17 +124,102 @@ export default function LandingPage() {
             {/* Dot grid behind */}
             <div className="absolute -bottom-4 -right-4 w-64 h-64 bg-dots rounded-2xl -z-10 opacity-50" />
 
-            <div className="relative rounded-3xl overflow-hidden border-2 border-foreground shadow-[8px_8px_0px_0px_#1E293B] hover:shadow-[12px_12px_0px_0px_#1E293B] hover:-translate-x-1 hover:-translate-y-1 bounce-transition">
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img
-                src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1080&q=80"
-                alt="Engagely Dashboard"
-                className="w-full h-[500px] object-cover"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-foreground/50 to-transparent" />
+            <div className="relative rounded-3xl overflow-hidden border-2 border-foreground shadow-[8px_8px_0px_0px_#1E293B] hover:shadow-[12px_12px_0px_0px_#1E293B] hover:-translate-x-1 hover:-translate-y-1 bounce-transition bg-card">
+              {/* Engagely Dashboard Mockup */}
+              <div className="h-[520px] flex">
+                {/* Sidebar */}
+                <div className="w-14 bg-foreground flex flex-col items-center py-4 gap-3 flex-shrink-0">
+                  <div className="w-8 h-8 bg-accent rounded-lg border border-white/20 flex items-center justify-center text-white text-[10px] font-extrabold">E</div>
+                  <div className="w-1 h-4" />
+                  {["bg-accent", "bg-white/20", "bg-white/20", "bg-white/20", "bg-white/20"].map((bg, i) => (
+                    <div key={i} className={`w-7 h-7 ${bg} rounded-lg`} />
+                  ))}
+                  <div className="mt-auto w-7 h-7 bg-tertiary rounded-full border border-white/20" />
+                </div>
+                {/* Main content */}
+                <div className="flex-1 flex flex-col bg-background overflow-hidden">
+                  {/* Header */}
+                  <div className="h-11 bg-card border-b-2 border-border flex items-center justify-between px-4 flex-shrink-0">
+                    <span className="text-[11px] font-extrabold text-foreground font-heading">Analytics</span>
+                    <div className="flex items-center gap-2">
+                      <div className="px-2.5 py-1 bg-muted rounded-full text-[8px] font-bold text-muted-fg">Last 30 days</div>
+                      <div className="w-5 h-5 bg-muted rounded-full" />
+                    </div>
+                  </div>
+                  <div className="flex-1 p-3 overflow-hidden">
+                    {/* Metric cards */}
+                    <div className="grid grid-cols-4 gap-2 mb-3">
+                      {[
+                        { label: "Visitors", value: "2,847", color: "shadow-[3px_3px_0px_0px_#8B5CF6]" },
+                        { label: "Engaged", value: "40.1%", color: "shadow-[3px_3px_0px_0px_#F472B6]" },
+                        { label: "Meetings", value: "89", color: "shadow-[3px_3px_0px_0px_#FBBF24]" },
+                        { label: "Avg Session", value: "4m 32s", color: "shadow-[3px_3px_0px_0px_#1E293B]" },
+                      ].map((m) => (
+                        <div key={m.label} className={`bg-card rounded-lg p-2.5 border-2 border-foreground ${m.color}`}>
+                          <p className="text-[7px] font-bold text-muted-fg">{m.label}</p>
+                          <p className="text-sm font-extrabold text-foreground font-heading">{m.value}</p>
+                          <p className="text-[7px] font-bold text-quaternary">+12%</p>
+                        </div>
+                      ))}
+                    </div>
+                    {/* Charts row */}
+                    <div className="grid grid-cols-3 gap-2 mb-3">
+                      {/* Line chart area */}
+                      <div className="col-span-2 bg-card rounded-lg p-3 border-2 border-foreground shadow-[3px_3px_0px_0px_#E2E8F0]">
+                        <p className="text-[8px] font-extrabold text-foreground mb-2 font-heading">Engagement Trend</p>
+                        <svg viewBox="0 0 300 100" className="w-full h-24">
+                          <defs>
+                            <linearGradient id="gfill" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stopColor="#8B5CF6" stopOpacity="0.2" /><stop offset="100%" stopColor="#8B5CF6" stopOpacity="0" /></linearGradient>
+                          </defs>
+                          {[0, 1, 2, 3, 4].map((i) => <line key={i} x1="0" y1={i * 25} x2="300" y2={i * 25} stroke="#E2E8F0" strokeWidth="0.5" />)}
+                          <path d="M0,80 L50,72 L100,60 L150,50 L200,35 L250,28 L300,20" fill="none" stroke="#1E293B" strokeWidth="2.5" />
+                          <path d="M0,85 L50,80 L100,70 L150,65 L200,50 L250,42 L300,38" fill="url(#gfill)" stroke="#8B5CF6" strokeWidth="2.5" />
+                          {[0, 50, 100, 150, 200, 250, 300].map((x, i) => <circle key={i} cx={x} cy={[85, 80, 70, 65, 50, 42, 38][i]} r="3" fill="#8B5CF6" stroke="#1E293B" strokeWidth="1" />)}
+                        </svg>
+                      </div>
+                      {/* Donut chart */}
+                      <div className="bg-card rounded-lg p-3 border-2 border-foreground shadow-[3px_3px_0px_0px_#F472B6]">
+                        <p className="text-[8px] font-extrabold text-foreground mb-2 font-heading">Intent</p>
+                        <svg viewBox="0 0 80 80" className="w-16 h-16 mx-auto">
+                          <circle cx="40" cy="40" r="28" fill="none" stroke="#E2E8F0" strokeWidth="10" />
+                          <circle cx="40" cy="40" r="28" fill="none" stroke="#FBBF24" strokeWidth="10" strokeDasharray="79.2 176" strokeDashoffset="0" />
+                          <circle cx="40" cy="40" r="28" fill="none" stroke="#8B5CF6" strokeWidth="10" strokeDasharray="59.8 176" strokeDashoffset="-79.2" />
+                        </svg>
+                        <div className="mt-2 space-y-1">
+                          {[{ c: "bg-accent", l: "High 34%" }, { c: "bg-tertiary", l: "Med 45%" }, { c: "bg-border", l: "Low 21%" }].map((d) => (
+                            <div key={d.l} className="flex items-center gap-1"><div className={`w-2 h-2 rounded-full ${d.c} border border-foreground`} /><span className="text-[7px] text-muted-fg font-medium">{d.l}</span></div>
+                          ))}
+                        </div>
+                      </div>
+                    </div>
+                    {/* Table */}
+                    <div className="bg-card rounded-lg border-2 border-foreground shadow-[3px_3px_0px_0px_#E2E8F0]">
+                      <div className="px-3 py-1.5 border-b-2 border-border"><p className="text-[8px] font-extrabold text-foreground font-heading">High-Intent Visitors</p></div>
+                      {[
+                        { email: "sarah@acme.com", co: "Acme Corp", score: 98 },
+                        { email: "james@techco.io", co: "TechCo", score: 95 },
+                        { email: "emily@startup.com", co: "Startup Inc", score: 92 },
+                      ].map((v) => (
+                        <div key={v.email} className="px-3 py-1.5 flex items-center justify-between border-b border-border last:border-0">
+                          <div className="flex items-center gap-2">
+                            <div className="w-4 h-4 bg-accent/20 rounded-full border border-foreground" />
+                            <span className="text-[8px] font-bold text-foreground">{v.email}</span>
+                            <span className="text-[7px] text-muted-fg">{v.co}</span>
+                          </div>
+                          <div className="flex items-center gap-2">
+                            <div className="w-10 h-1.5 bg-muted rounded-full overflow-hidden"><div className="h-full bg-accent rounded-full" style={{ width: `${v.score}%` }} /></div>
+                            <span className="text-[8px] font-extrabold text-foreground">{v.score}</span>
+                            <span className="px-1.5 py-0.5 bg-accent text-white text-[6px] font-extrabold rounded-full border border-foreground">Reach out</span>
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              </div>
 
               {/* Floating cards */}
-              <div className="absolute bottom-6 left-6 bg-card border-2 border-foreground rounded-xl p-4 shadow-hard flex items-center gap-3 animate-float">
+              <div className="absolute bottom-6 left-20 bg-card border-2 border-foreground rounded-xl p-4 shadow-hard flex items-center gap-3 animate-float">
                 <div className="w-10 h-10 bg-quaternary rounded-full border-2 border-foreground flex items-center justify-center">
                   <span className="text-white font-bold text-xs">+</span>
                 </div>
@@ -144,7 +229,7 @@ export default function LandingPage() {
                 </div>
               </div>
 
-              <div className="absolute top-6 right-6 bg-card border-2 border-foreground rounded-xl p-3 shadow-hard-pink flex items-center gap-2 animate-float-slow">
+              <div className="absolute top-4 right-4 bg-card border-2 border-foreground rounded-xl p-3 shadow-hard-pink flex items-center gap-2 animate-float-slow">
                 <div className="w-7 h-7 bg-accent rounded-full border-2 border-foreground flex items-center justify-center text-white text-[10px] font-extrabold">AI</div>
                 <div>
                   <p className="text-xs font-bold text-foreground">Arya Agent Live</p>
