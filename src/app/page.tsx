@@ -77,9 +77,9 @@ export default function LandingPage() {
         <div className="grid grid-cols-2 gap-16 items-center">
           {/* Left */}
           <div className="space-y-8 animate-pop-in">
-            <div className="inline-flex items-center gap-2 px-4 py-2 bg-tertiary/20 border-2 border-foreground rounded-full shadow-hard">
-              <span className="text-sm font-bold text-foreground">Now with AI Video Agents</span>
-              <span className="text-lg">&#x2728;</span>
+            <div className="inline-flex items-center gap-2 px-4 py-2 bg-quaternary/20 border-2 border-foreground rounded-full shadow-hard">
+              <span className="text-sm font-bold text-foreground">See it live on a real website</span>
+              <Link href="/demo/real-estate" className="text-sm font-extrabold text-accent hover:underline">Try the demo &rarr;</Link>
             </div>
 
             <h1 className="text-5xl font-extrabold text-foreground leading-[1.15] font-heading">
@@ -89,7 +89,7 @@ export default function LandingPage() {
             </h1>
 
             <p className="text-lg text-muted-fg leading-relaxed">
-              Replace your static website with an <strong className="text-foreground">AI video agent</strong> that qualifies leads, books meetings, and answers questions 24/7.
+              Replace your static website with an <strong className="text-foreground">AI assistant</strong> that qualifies leads, books meetings, and answers questions 24/7.
             </p>
 
             <div className="flex items-center gap-4">
@@ -286,6 +286,13 @@ export default function LandingPage() {
               <p className="text-xs text-muted-fg">{item.desc}</p>
             </Link>
           ))}
+          <Link
+            href="/demo/real-estate"
+            className="bg-quaternary border-2 border-foreground rounded-2xl p-5 text-left shadow-hard hover:shadow-hard-hover hover:-translate-x-0.5 hover:-translate-y-0.5 bounce-transition"
+          >
+            <h3 className="font-bold text-foreground font-heading mb-1">Real Estate Demo</h3>
+            <p className="text-xs text-foreground/70">See it on a live site</p>
+          </Link>
           <button
             onClick={handleTryDemo}
             className="bg-accent border-2 border-foreground rounded-2xl p-5 text-left shadow-hard hover:shadow-hard-hover hover:-translate-x-0.5 hover:-translate-y-0.5 bounce-transition"
@@ -293,10 +300,6 @@ export default function LandingPage() {
             <h3 className="font-bold text-white font-heading mb-1">Live Demo</h3>
             <p className="text-xs text-white/70">Try the AI agent now</p>
           </button>
-          <Link href="/" className="bg-foreground border-2 border-foreground rounded-2xl p-5 text-left shadow-hard-yellow hover:-translate-x-0.5 hover:-translate-y-0.5 bounce-transition">
-            <h3 className="font-bold text-white font-heading mb-1">Landing Page</h3>
-            <p className="text-xs text-white/60">You are here</p>
-          </Link>
         </div>
       </section>
 
