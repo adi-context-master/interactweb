@@ -89,8 +89,8 @@ const SARAH_SCRIPT: DemoMessage[] = [
   { id: 8,  sender: "visitor", text: "Yeah, ideally settled by then. We're actually in pre-approval already — ready to move when the right place comes up.", delay: 15400,
     signal: { type: "financial_readiness", level: "Very High", score: 91, confidence: 0.91, indicators: ["Pre-approved for mortgage = financing locked", '"ready to move" = decision-ready'] } },
   { id: 9,  sender: "agent",   text: "Pre-approval is huge. What price range are you thinking?", delay: 17200 },
-  { id: 10, sender: "visitor", text: "Pre-approved up to $1.2M but probably looking $900k–$1.1M. Want to leave some breathing room.", delay: 19800,
-    signal: { type: "financial_readiness", level: "Confirmed", score: 96, confidence: 0.96, indicators: ["Specific budget: $900k–$1.1M", "Pre-approval disclosed: $1.2M"] } },
+  { id: 10, sender: "visitor", text: "Pre-approved up to $900k but probably looking around $800k–$850k. Want to leave some breathing room.", delay: 19800,
+    signal: { type: "financial_readiness", level: "Confirmed", score: 94, confidence: 0.94, indicators: ["Specific budget: ~$850k", "Pre-approval confirmed: $900k"] } },
   { id: 11, sender: "agent",   text: "Smart move. How long have you been looking seriously?", delay: 21600 },
   { id: 12, sender: "visitor", text: "About 6 weeks. We're not in a rush to buy just anything — it has to be the right fit.", delay: 24200,
     signal: { type: "shopping_behaviour", level: "High", score: 78, confidence: 0.78, indicators: ["Active search for 6 weeks = engaged buyer", "Selective — quality-conscious"] } },
@@ -202,8 +202,8 @@ export default function RealEstateDemoPage() {
 
   const activeAvatar = demoMode === "sarah" ? SARAH_AVATAR : MARCUS_AVATAR;
   const activeName   = demoMode === "sarah" ? "Sarah Chen"  : "Marcus Thorne";
-  const activeIntent = demoMode === "sarah" ? "87% Intent"  : "17% Intent";
-  const activeIntentPct = demoMode === "sarah" ? 87 : 17;
+  const activeIntent = demoMode === "sarah" ? "89% Intent"  : "17% Intent";
+  const activeIntentPct = demoMode === "sarah" ? 89 : 17;
 
   const handleCopy = () => {
     navigator.clipboard.writeText(AI_SUGGEST_SARAH.replace(/[""]/g, ""));
@@ -236,9 +236,9 @@ export default function RealEstateDemoPage() {
               </nav>
             </div>
             <div className="flex items-center gap-5">
-              <button style={{ fontSize: 11, fontWeight: 700, textTransform: "uppercase", letterSpacing: "0.1em", color: OSV, borderBottom: `1px solid ${SFC}`, background: "none" }}>
+              <Link href="/demo/real-estate/dashboard" style={{ fontSize: 11, fontWeight: 700, textTransform: "uppercase", letterSpacing: "0.1em", color: OSV, borderBottom: `1px solid ${SFC}` }}>
                 Agent Login
-              </button>
+              </Link>
               <button
                 className="rounded-full text-white transition-all hover:opacity-90"
                 style={{ background: P, padding: "10px 24px", fontSize: 11, fontWeight: 700, textTransform: "uppercase", letterSpacing: "0.1em", boxShadow: `0 8px 24px rgba(124,92,255,0.25)` }}
@@ -392,7 +392,7 @@ export default function RealEstateDemoPage() {
                 </div>
                 <div>
                   <div className="flex items-center gap-2">
-                    <h3 style={{ fontFamily: "var(--font-outfit), Outfit, sans-serif", fontWeight: 700, fontSize: "1.05rem", color: OBG, lineHeight: 1 }}>{activeName}</h3>
+                    <Link href="/profile" style={{ fontFamily: "var(--font-outfit), Outfit, sans-serif", fontWeight: 700, fontSize: "1.05rem", color: OBG, lineHeight: 1, textDecoration: "none" }} className="hover:underline">{activeName}</Link>
                     <BadgeCheck size={15} style={{ color: P }} />
                     <span className="text-[10px] font-black tracking-tight text-white px-2 py-0.5 rounded-full" style={{ background: activeIntentPct >= 70 ? P : activeIntentPct >= 40 ? "#d97706" : "#dc2626" }}>
                       {activeIntent.toUpperCase()}

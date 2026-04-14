@@ -63,7 +63,7 @@ const DISCOVERIES = [
     icon: Clock,
     count: "04",
     title: "Time Urgency",
-    href: "#",
+    href: "/time-urgency",
     desc: "Identified 4 leads with strict 30-day relocation timelines from out of state.",
     badge: { icon: Zap, label: "Urgent Segment", color: OSV },
   },
@@ -87,6 +87,9 @@ export default function Dashboard() {
 
         <div className="mb-10 px-2">
           <span className="font-heading font-extrabold text-2xl tracking-tighter" style={{ color: OBG }}>Engagely AI</span>
+          <Link href="/demo/real-estate" className="flex items-center gap-1 mt-3 text-[11px] font-bold transition-colors hover:opacity-70" style={{ color: P }}>
+            ← Back to Chat
+          </Link>
         </div>
 
         {/* Enterprise tier badge */}

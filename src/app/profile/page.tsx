@@ -103,6 +103,9 @@ export default function ProfilePage() {
         style={{ background: SFCL, borderColor: SFC }}>
         <div className="mb-10 px-2">
           <span className="font-heading font-extrabold text-2xl tracking-tighter" style={{ color: OBG }}>Engagely AI</span>
+          <Link href="/demo/real-estate" className="flex items-center gap-1 mt-3 text-[11px] font-bold transition-colors hover:opacity-70" style={{ color: P }}>
+            ← Back to Chat
+          </Link>
         </div>
         <div className="mb-8 px-4 py-3 rounded-2xl border" style={{ background: P5, borderColor: `${P}1a` }}>
           <p className="text-[0.65rem] font-bold uppercase tracking-[0.1em] mb-1" style={{ color: P }}>Account Level</p>
