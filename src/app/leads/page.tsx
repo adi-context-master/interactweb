@@ -7,6 +7,7 @@ import {
   ChevronLeft, ChevronRight,
 } from "lucide-react";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import { useState } from "react";
 
 /* ─── palette ─────────────────────────────────────────────────────── */
@@ -144,6 +145,7 @@ const SCORE_COLORS: Record<Lead["tier"], string> = {
 };
 
 export default function LeadsPage() {
+  const router = useRouter();
   const [activeFilter, setActiveFilter] = useState<Filter>("all");
   const [timePeriod, setTimePeriod] = useState<"today" | "week" | "month" | "all">("today");
   const [hovered, setHovered] = useState<string | null>(null);
@@ -313,10 +315,11 @@ export default function LeadsPage() {
                 const TrendIcon = lead.trend === "up" ? TrendingUp : lead.trend === "down" ? TrendingDown : Minus;
                 return (
                   <tr key={lead.email}
-                    className="transition-colors"
+                    className="transition-colors cursor-pointer"
                     style={{ background: hovered === lead.email ? lead.rowHover : lead.rowBg }}
                     onMouseEnter={() => setHovered(lead.email)}
-                    onMouseLeave={() => setHovered(null)}>
+                    onMouseLeave={() => setHovered(null)}
+                    onClick={() => router.push("/profile")}>
 
                     {/* Name */}
                     <td className="px-6 py-6">
@@ -400,29 +403,48 @@ export default function LeadsPage() {
                     </td>
 
                     {/* Actions */}
-                    <td className="px-6 py-6 text-right">
+                    <td className="px-6 py-6 text-right" onClick={(e) => e.stopPropagation()}>
                       <div className="flex items-center justify-end gap-1.5">
                         {[
-                          { icon: Phone,    title: "Call" },
-                          { icon: MessageSquare, title: "Chat" },
-                          { icon: Eye,      title: "View Details" },
-                          { icon: Calendar, title: "Schedule" },
-                        ].map(({ icon: Icon, title }) => (
-                          <button key={title}
-                            title={title}
-                            className="w-9 h-9 rounded-xl flex items-center justify-center bg-white border border-stone-100 shadow-sm transition-all"
-                            style={{ color: OSV }}
-                            onMouseEnter={(e) => {
-                              (e.currentTarget as HTMLElement).style.color = "#4f46e5";
-                              (e.currentTarget as HTMLElement).style.borderColor = "#c7d2fe";
-                            }}
-                            onMouseLeave={(e) => {
-                              (e.currentTarget as HTMLElement).style.color = OSV;
-                              (e.currentTarget as HTMLElement).style.borderColor = "#f5f5f4";
-                            }}>
-                            <Icon className="w-4 h-4" />
-                          </button>
-                        ))}
+                          { icon: Phone,         title: "Call",         href: null },
+                          { icon: MessageSquare, title: "Chat",         href: null },
+                          { icon: Eye,           title: "View Details", href: "/profile" },
+                          { icon: Calendar,      title: "Schedule",     href: null },
+                        ].map(({ icon: Icon, title, href }) =>
+                          href ? (
+                            <Link key={title} href={href}
+                              title={title}
+                              className="w-9 h-9 rounded-xl flex items-center justify-center bg-white border border-stone-100 shadow-sm transition-all"
+                              style={{ color: P }}
+                              onMouseEnter={(e) => {
+                                (e.currentTarget as HTMLElement).style.color = PDIM;
+                                (e.currentTarget as HTMLElement).style.borderColor = "#c7d2fe";
+                                (e.currentTarget as HTMLElement).style.background = P5;
+                              }}
+                              onMouseLeave={(e) => {
+                                (e.currentTarget as HTMLElement).style.color = P;
+                                (e.currentTarget as HTMLElement).style.borderColor = "#f5f5f4";
+                                (e.currentTarget as HTMLElement).style.background = "white";
+                              }}>
+                              <Icon className="w-4 h-4" />
+                            </Link>
+                          ) : (
+                            <button key={title}
+                              title={title}
+                              className="w-9 h-9 rounded-xl flex items-center justify-center bg-white border border-stone-100 shadow-sm transition-all"
+                              style={{ color: OSV }}
+                              onMouseEnter={(e) => {
+                                (e.currentTarget as HTMLElement).style.color = "#4f46e5";
+                                (e.currentTarget as HTMLElement).style.borderColor = "#c7d2fe";
+                              }}
+                              onMouseLeave={(e) => {
+                                (e.currentTarget as HTMLElement).style.color = OSV;
+                                (e.currentTarget as HTMLElement).style.borderColor = "#f5f5f4";
+                              }}>
+                              <Icon className="w-4 h-4" />
+                            </button>
+                          )
+                        )}
                       </div>
                     </td>
                   </tr>
