@@ -46,34 +46,50 @@ type ChatMsg = {
 const CHAT: ChatMsg[] = [
   {
     from: "ai",
-    text: "Hi Sarah! I noticed you were looking at the 3rd floor loft at 450 Bryant. Are you still targeting a move-in before the September semester starts?",
+    text: "Hey! Looking at our SoMa properties? Happy to help 👋",
     time: "10:42 AM",
     signals: [],
   },
   {
     from: "lead",
-    text: "Yes, definitely. But I need to stay under $850k and I\u2019m worried about the HOA fees on that building. Do you have anything else in the area?",
+    text: "New job actually. Starting in September. My partner and I want to be close to the office but also have space for a home office.",
     time: "10:45 AM",
     signals: [
-      { Icon: CreditCard, label: "Financing Signal" },
-      { Icon: MapPin,     label: "Area Signal" },
+      { Icon: Calendar, label: "Time Urgency" },
+      { Icon: MapPin,   label: "Location Signal" },
     ],
   },
   {
     from: "ai",
-    text: "Understood. I\u2019ve found 3 off-market units that meet that criteria. One has a private roof deck. Should I have my human partner, Marcus, send over the spreadsheets for those today?",
+    text: "Congrats on the new role! Will you need to be settled by September?",
     time: "10:46 AM",
     signals: [],
   },
   {
     from: "lead",
-    text: "That would be great. I\u2019m actually free Saturday morning if we could do a quick tour of any of them.",
-    time: "11:02 AM",
-    signals: [{ Icon: Calendar, label: "Timeline Signal" }],
+    text: "Yeah, ideally settled by then. Pre-approved up to $900k but probably looking around $800k\u2013$850k. Want to leave some breathing room.",
+    time: "10:49 AM",
+    signals: [
+      { Icon: CreditCard, label: "Financial Signal" },
+    ],
+  },
+  {
+    from: "ai",
+    text: "Smart move. I\u2019ve got new listings coming Friday in your range \u2014 SoMa and a couple in Marina. Want me to send them over?",
+    time: "10:51 AM",
+    signals: [],
+  },
+  {
+    from: "lead",
+    text: "Yeah, definitely. And do you have time for a quick call Thursday morning? We have questions about inspections and closing timelines.",
+    time: "10:53 AM",
+    signals: [
+      { Icon: Zap, label: "High Intent" },
+    ],
   },
 ];
 
-const SAY_THIS = "\u201cHey Sarah, Marcus here. Just saw your note about Saturday. I\u2019ve secured early access to 3 units under $850k near that Downtown Loft you liked. One is still being renovated but looks perfect for your Sept deadline. Can we do a 15-min tour this Sat at 10am?\u201d";
+const SAY_THIS = "\u201cHey Sarah, Marcus here. Thursday 9am is locked in \u2014 looking forward to it. I\u2019ve pulled together 4 SoMa listings under $850k with home office space, including one that just came off-market. Sending them over Wednesday evening so you have time to review before our call.\u201d";
 
 const FOOTPRINT = [
   { active: true,  label: "Pre-approved up to $900k", sub: "Confirmed via SoFi connection" },
