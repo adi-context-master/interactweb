@@ -6,7 +6,7 @@ import {
   Sparkles, CheckCircle, AlertTriangle, Lightbulb, TrendingUp,
   PlusCircle, ChevronDown, Medal, Users, MessageCircle, Clock,
   ArrowUp, ArrowDown, Minus as MinusIcon, Target, Zap,
-  UserSearch,
+  UserSearch, ShoppingCart,
 } from "lucide-react";
 import Link from "next/link";
 import { useState } from "react";
@@ -28,8 +28,9 @@ const sideActive = { background: "white", boxShadow: "0 4px 12px rgba(0,0,0,0.03
 
 /* ─── sidebar nav ─────────────────────────────────────────────────── */
 const NAV = [
-  { icon: LayoutDashboard, label: "Dashboard",    href: "/dashboard", active: false },
-  { icon: GitBranch,       label: "Pipeline",     href: "/pipeline",  active: false },
+  { icon: LayoutDashboard, label: "Dashboard",           href: "/dashboard",         active: false },
+  { icon: ShoppingCart,    label: "Shopping Behaviors", href: "/shopping-behavior", active: false },
+  { icon: GitBranch,       label: "Pipeline",           href: "/pipeline",          active: false },
   { icon: UserSearch,      label: "Leads",        href: "/leads",     active: false },
   { icon: BarChart3,       label: "Insights",     href: "/insights",  active: true  },
   { icon: Sliders,         label: "Lead Scoring", href: "/lead-scoring", active: false },

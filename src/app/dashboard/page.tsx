@@ -32,8 +32,9 @@ const sideActive = { background: "white", boxShadow: "0 4px 12px rgba(0,0,0,0.03
 
 /* ─── nav items ──────────────────────────────────────────────────── */
 const NAV = [
-  { icon: LayoutDashboard, label: "Dashboard",    active: true },
-  { icon: GitBranch,       label: "Pipeline",     href: "/pipeline",  active: false },
+  { icon: LayoutDashboard, label: "Dashboard",           active: true },
+  { icon: ShoppingCart,    label: "Shopping Behaviors", href: "/shopping-behavior", active: false },
+  { icon: GitBranch,       label: "Pipeline",           href: "/pipeline",          active: false },
   { icon: Users,           label: "Leads",        href: "/leads",     active: false },
   { icon: BarChart3,       label: "Insights",     href: "/insights",  active: false },
   { icon: Sliders,         label: "Lead Scoring", active: false },

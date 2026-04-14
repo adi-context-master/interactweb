@@ -4,7 +4,7 @@ import {
   LayoutDashboard, GitBranch, UserSearch, BarChart3, Sliders, MessageSquare,
   Settings, LogOut, BadgeCheck, PlusCircle, Search, ChevronDown,
   Phone, Calendar, MoreHorizontal, Sparkles, Pencil, Copy, Smile, Send,
-  Zap, Paperclip, Edit, Check,
+  Zap, Paperclip, Edit, Check, ShoppingCart,
 } from "lucide-react";
 import Link from "next/link";
 import { useState } from "react";
@@ -27,8 +27,9 @@ const sideActive = { background: "white", boxShadow: "0 4px 12px rgba(0,0,0,0.03
 
 /* ─── sidebar nav ─────────────────────────────────────────────────── */
 const NAV = [
-  { icon: LayoutDashboard, label: "Dashboard",    href: "/dashboard", active: false },
-  { icon: GitBranch,       label: "Pipeline",     href: "#",          active: false },
+  { icon: LayoutDashboard, label: "Dashboard",           href: "/dashboard",         active: false },
+  { icon: ShoppingCart,    label: "Shopping Behaviors", href: "/shopping-behavior", active: false },
+  { icon: GitBranch,       label: "Pipeline",           href: "#",                  active: false },
   { icon: UserSearch,      label: "Leads",        href: "/leads",     active: false },
   { icon: BarChart3,       label: "Insights",     href: "/insights",  active: false },
   { icon: Sliders,         label: "Lead Scoring", href: "/lead-scoring", active: false },
