@@ -55,7 +55,7 @@ const DISCOVERIES = [
     icon: Building2,
     count: "06",
     title: "Financial Readiness",
-    href: "#",
+    href: "/financial-readiness",
     desc: "High volume of queries regarding down-payment assistance programs this morning.",
     badge: { icon: AlertTriangle, label: "High Impact Priority", color: ERR },
   },
