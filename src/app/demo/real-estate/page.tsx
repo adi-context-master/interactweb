@@ -650,26 +650,34 @@ export default function RealEstateDemoPage() {
 
       {/* ── Sticky chat trigger ── */}
       {!chatOpen && (
-        <div className="fixed bottom-0 left-0 right-0 z-50" style={{ background: "rgba(255,253,245,0.95)", backdropFilter: "blur(12px)", borderTop: `1px solid ${SFC}`, boxShadow: "0 -4px 20px -4px rgba(46,47,44,0.08)" }}>
-          <div style={{ maxWidth: 560, margin: "0 auto", padding: "10px 24px" }}>
-            <button onClick={openChat} className="w-full flex items-center justify-between group">
-              <div className="flex items-center gap-3">
-                <div className="relative w-10 h-10 rounded-full overflow-hidden shrink-0" style={{ border: `2px solid ${P10}` }}>
-                  {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img alt="Agent" className="w-full h-full object-cover" src={AGENT_IMG} />
-                  <div className="absolute bottom-0 right-0 w-2.5 h-2.5 bg-green-400 rounded-full" style={{ border: "2px solid white" }} />
-                </div>
-                <div className="text-left">
-                  <p className="font-bold text-sm leading-tight" style={{ color: OBG, fontFamily: "var(--font-outfit), Outfit, sans-serif" }}>Property Assistant</p>
-                  <p style={{ fontSize: 10, color: OTL, textTransform: "uppercase", letterSpacing: "0.1em", fontWeight: 700 }}>Powered by Engagely · Live demo</p>
-                </div>
-              </div>
-              <div className="rounded-full text-white text-xs font-bold transition-all group-hover:opacity-90"
-                style={{ background: P, padding: "10px 22px", boxShadow: `0 4px 12px rgba(124,92,255,0.3)`, fontFamily: "var(--font-outfit), Outfit, sans-serif" }}>
-                Open Chat →
-              </div>
-            </button>
-          </div>
+        <div className="fixed bottom-6 left-1/2 z-50" style={{ transform: "translateX(-50%)" }}>
+          <button
+            onClick={openChat}
+            className="flex items-center gap-3 group"
+            style={{
+              background: "rgba(255,253,245,0.97)",
+              backdropFilter: "blur(16px)",
+              border: `1px solid ${SFC}`,
+              borderRadius: 999,
+              padding: "10px 14px 10px 10px",
+              boxShadow: "0 8px 32px -4px rgba(46,47,44,0.14), 0 2px 8px -2px rgba(46,47,44,0.06)",
+              whiteSpace: "nowrap",
+            }}
+          >
+            <div className="relative w-10 h-10 rounded-full overflow-hidden shrink-0" style={{ border: `2px solid ${P10}` }}>
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img alt="Agent" className="w-full h-full object-cover" src={AGENT_IMG} />
+              <div className="absolute bottom-0 right-0 w-2.5 h-2.5 bg-green-400 rounded-full" style={{ border: "2px solid white" }} />
+            </div>
+            <div className="text-left">
+              <p className="font-bold text-sm leading-tight" style={{ color: OBG, fontFamily: "var(--font-outfit), Outfit, sans-serif" }}>Property Assistant</p>
+              <p style={{ fontSize: 10, color: OTL, textTransform: "uppercase", letterSpacing: "0.1em", fontWeight: 700 }}>Powered by Engagely · Live demo</p>
+            </div>
+            <div className="rounded-full text-white text-xs font-bold transition-all group-hover:opacity-90 ml-2"
+              style={{ background: P, padding: "9px 20px", boxShadow: `0 4px 12px rgba(124,92,255,0.3)`, fontFamily: "var(--font-outfit), Outfit, sans-serif" }}>
+              Open Chat →
+            </div>
+          </button>
         </div>
       )}
     </div>
