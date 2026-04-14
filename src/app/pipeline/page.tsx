@@ -3,7 +3,7 @@
 import {
   LayoutDashboard, GitBranch, Users, BarChart3, Sliders, MessageSquare,
   Settings, Plus, Search, Bell, User, MoreHorizontal, Phone, MessageCircle,
-  ChevronDown, TrendingDown, ShoppingCart,
+  ChevronDown, TrendingDown, Zap,
 } from "lucide-react";
 import Link from "next/link";
 
@@ -19,7 +19,7 @@ const ERR  = "#b41340";
 /* ─── side nav ────────────────────────────────────────────────────── */
 const NAV = [
   { icon: LayoutDashboard, label: "Dashboard",           href: "/dashboard",         active: false, dot: false },
-  { icon: ShoppingCart,    label: "Shopping Behaviors", href: "/shopping-behavior", active: false, dot: false },
+  { icon: Zap,             label: "Intent Signals",     href: "/intent-signals",    active: false, dot: false },
   { icon: GitBranch,       label: "Pipeline",           href: "/pipeline",          active: true,  dot: false },
   { icon: Users,           label: "Leads",        href: "/leads",     active: false, dot: false },
   { icon: BarChart3,       label: "Insights",     href: "/insights",  active: false, dot: false },

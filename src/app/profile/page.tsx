@@ -5,7 +5,7 @@ import {
   ArrowLeft, Bot, CheckCheck, CreditCard, MapPin, Calendar,
   Zap, Copy, Phone, MessageSquare, CalendarDays,
   AlertTriangle, Globe, Settings, LogOut, BadgeCheck, Check, Gauge,
-  LayoutDashboard, GitBranch, UserSearch, BarChart3, Sliders, PlusCircle, ShoppingCart,
+  LayoutDashboard, GitBranch, UserSearch, BarChart3, Sliders, PlusCircle,
 } from "lucide-react";
 import Link from "next/link";
 
@@ -27,7 +27,7 @@ const sideActive = { background: "white", boxShadow: "0 4px 12px rgba(0,0,0,0.03
 /* ─── sidebar nav ─────────────────────────────────────────────────── */
 const NAV = [
   { icon: LayoutDashboard, label: "Dashboard",           href: "/dashboard",         active: false },
-  { icon: ShoppingCart,    label: "Shopping Behaviors", href: "/shopping-behavior", active: false },
+  { icon: Zap,             label: "Intent Signals",     href: "/intent-signals",    active: false },
   { icon: GitBranch,       label: "Pipeline",           href: "/pipeline",          active: false },
   { icon: UserSearch,      label: "Leads",        href: "/leads",        active: true  },
   { icon: BarChart3,       label: "Insights",     href: "/insights",     active: false },

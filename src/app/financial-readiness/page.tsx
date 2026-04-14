@@ -3,7 +3,7 @@
 import React from "react";
 import {
   LayoutDashboard, GitBranch, UserSearch, BarChart3, Sliders, MessageSquare,
-  Settings, LogOut, BadgeCheck, PlusCircle, ShoppingCart, ChevronRight,
+  Settings, LogOut, BadgeCheck, PlusCircle, ChevronRight,
   Sparkles, Zap, Check, MessageCircle, Wallet, ShieldCheck, CreditCard, Key,
   BarChart2, ChevronDown, ExternalLink,
 } from "lucide-react";
@@ -30,7 +30,7 @@ const sideActive = { background: "white", boxShadow: "0 4px 12px rgba(0,0,0,0.03
 /* ─── nav ─────────────────────────────────────────────────────────── */
 const NAV = [
   { icon: LayoutDashboard, label: "Dashboard",           href: "/dashboard",           active: false },
-  { icon: ShoppingCart,    label: "Shopping Behaviors",  href: "/shopping-behavior",   active: false },
+  { icon: Zap,             label: "Intent Signals",      href: "/intent-signals",      active: false },
   { icon: GitBranch,       label: "Pipeline",            href: "/pipeline",            active: false },
   { icon: UserSearch,      label: "Leads",               href: "/leads",               active: false },
   { icon: BarChart3,       label: "Insights",            href: "/insights",            active: false },
