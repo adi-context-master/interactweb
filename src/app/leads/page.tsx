@@ -81,7 +81,7 @@ const LEADS: Lead[] = [
   {
     initials: "MW", avatarBg: "#D97706", avatarText: "white",
     name: "Marcus Wilson", email: "m.wilson@mail.com",
-    score: 82, trend: "flat",
+    score: 17, trend: "flat",
     tier: "warm", online: false,
     badges: [
       { emoji: "🏠", label: "Strong Property Focus" },
