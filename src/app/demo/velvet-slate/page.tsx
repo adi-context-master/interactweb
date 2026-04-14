@@ -237,7 +237,8 @@ export default function VelvetSlatePage() {
             </nav>
           </div>
           <div className="flex items-center gap-7">
-            <button
+            <Link
+              href="/dashboard"
               style={{
                 fontSize: 11,
                 fontWeight: 700,
@@ -245,11 +246,10 @@ export default function VelvetSlatePage() {
                 letterSpacing: "0.1em",
                 color: "rgba(15,23,42,0.75)",
                 borderBottom: `1px solid rgba(51,65,85,0.25)`,
-                background: "none",
               }}
             >
               Agent Login
-            </button>
+            </Link>
             <button
               className="rounded-full text-white transition-all hover:opacity-90"
               style={{
