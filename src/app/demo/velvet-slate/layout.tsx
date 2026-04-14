@@ -14,7 +14,7 @@ const inter = Inter({
   weight: ["400", "500", "600"],
 });
 
-export default function RealEstateLayout({
+export default function VelvetSlateLayout({
   children,
 }: {
   children: React.ReactNode;
