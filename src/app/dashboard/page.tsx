@@ -47,6 +47,7 @@ const DISCOVERIES = [
     icon: ShoppingCart,
     count: "08",
     title: "Shopping Behavior",
+    href: "/shopping-behavior",
     desc: "Users are deeply comparing specific mortgage structures over property features.",
     badge: { icon: TrendingUp, label: "Trending Up (14%)", color: P },
   },
@@ -54,6 +55,7 @@ const DISCOVERIES = [
     icon: Building2,
     count: "06",
     title: "Financial Readiness",
+    href: "#",
     desc: "High volume of queries regarding down-payment assistance programs this morning.",
     badge: { icon: AlertTriangle, label: "High Impact Priority", color: ERR },
   },
@@ -61,6 +63,7 @@ const DISCOVERIES = [
     icon: Clock,
     count: "04",
     title: "Time Urgency",
+    href: "#",
     desc: "Identified 4 leads with strict 30-day relocation timelines from out of state.",
     badge: { icon: Zap, label: "Urgent Segment", color: OSV },
   },
@@ -68,6 +71,7 @@ const DISCOVERIES = [
     icon: MapPin,
     count: "12",
     title: "Location Specific",
+    href: "/location-specific",
     desc: "South Bay interest has increased significantly. Focus content on school districts there.",
     badge: { icon: Map, label: "Cluster Detected", color: OSV },
   },
@@ -255,8 +259,8 @@ export default function Dashboard() {
                   const Icon = d.icon;
                   const BadgeIcon = d.badge.icon;
                   return (
-                    <div key={d.title}
-                      className="bg-white p-8 rounded-2xl border transition-all group"
+                    <Link key={d.title} href={d.href}
+                      className="block bg-white p-8 rounded-2xl border transition-all group"
                       style={{ borderColor: SFCH, ...editShadow }}
                       onMouseEnter={(e) => { (e.currentTarget as HTMLElement).style.borderColor = `${P}4d`; }}
                       onMouseLeave={(e) => { (e.currentTarget as HTMLElement).style.borderColor = SFCH; }}>
@@ -273,7 +277,7 @@ export default function Dashboard() {
                       <div className="flex items-center gap-2 text-xs font-bold" style={{ color: d.badge.color }}>
                         <BadgeIcon className="w-4 h-4" /> {d.badge.label}
                       </div>
-                    </div>
+                    </Link>
                   );
                 })}
               </div>
