@@ -340,7 +340,7 @@ export default function Dashboard() {
                 <div className="bg-white p-9 rounded-2xl border-t-4" style={{ borderTopColor: SEC, ...editShadow }}>
                   <div className="flex justify-between items-center mb-8">
                     <span className="text-[0.65rem] font-bold tracking-[0.2em] uppercase" style={{ color: OTL }}>Stable High Performer</span>
-                    <span className="font-heading text-3xl font-extrabold" style={{ color: OBG }}>82%</span>
+                    <span className="font-heading text-3xl font-extrabold" style={{ color: OBG }}>17%</span>
                   </div>
                   <h4 className="font-heading text-2xl font-bold mb-2">Marcus Wilson</h4>
                   <p className="text-sm mb-6 leading-relaxed italic" style={{ color: OSV }}>
@@ -426,7 +426,7 @@ export default function Dashboard() {
                   <div className="flex items-center gap-8">
                     <div className="text-right">
                       <p className="text-[10px] font-bold uppercase tracking-widest leading-none mb-1" style={{ color: OTL }}>Score</p>
-                      <p className="text-3xl font-heading font-extrabold" style={{ color: OBG }}>82%</p>
+                      <p className="text-3xl font-heading font-extrabold" style={{ color: OBG }}>17%</p>
                     </div>
                     <button className="h-12 w-12 rounded-full flex items-center justify-center transition-all hover:scale-105"
                       style={{ background: SFCH, color: OBG }}>
